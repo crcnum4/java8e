@@ -2,11 +2,10 @@ package com.company;
 
 import Bank.CheckingAccount;
 import Bank.SavingsAccount;
-import Bank.DebitCard;
+import BankTools.DebitCard;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Main {
 
