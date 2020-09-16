@@ -3,6 +3,8 @@ package com.company;
 import Bank.CheckingAccount;
 import Bank.SavingsAccount;
 import BankTools.DebitCard;
+import Bank.CDInvestment;
+import Bank.InvestmentAccount;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,5 +38,14 @@ public class Main {
         System.out.println(myCheck.getDetails());
         System.out.println(myCard.charge(200, "3218") ? "Approved" : "Declined");
         System.out.println(myCheck.getDetails());
+
+        CDInvestment myCD = new CDInvestment(10000, 987654, "Clifton", 10, 1, 5);
+        System.out.println(myCD.getDetails());
+        myCD.withdraw(1000);
+        System.out.println(myCD.getDetails());
+        InvestmentAccount invAcct = new InvestmentAccount(20000, 65482, "Clifton", 5, 3, 'M');
+        System.out.println(invAcct.getDetails());
+        invAcct.withdraw(1000);
+        System.out.println(invAcct.getDetails());
     }
 }
