@@ -1,10 +1,10 @@
 package com.company;
 
-import Bank.CheckingAccount;
-import Bank.SavingsAccount;
+import BankAccount.CheckingAccount;
+import BankAccount.SavingsAccount;
 import BankTools.DebitCard;
-import Bank.CDInvestment;
-import Bank.InvestmentAccount;
+import BankAccount.CDInvestment;
+import BankAccount.InvestmentAccount;
 
 import java.util.ArrayList;
 import java.util.Arrays;

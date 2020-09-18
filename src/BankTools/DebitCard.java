@@ -1,7 +1,7 @@
 package BankTools;
 
-import Bank.CheckingAccount;
-import Bank.SavingsAccount;
+import BankAccount.CheckingAccount;
+import BankAccount.SavingsAccount;
 
 import java.util.*;
 

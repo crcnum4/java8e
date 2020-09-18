@@ -1,4 +1,4 @@
-package Bank;
+package BankAccount;
 
 public class SavingsAccount extends BankAccount {
     private int interest;

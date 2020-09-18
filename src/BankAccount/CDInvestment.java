@@ -1,4 +1,4 @@
-package Bank;
+package BankAccount;
 
 public class CDInvestment extends InvestmentAccount {
     private int timeFrame = 3;
