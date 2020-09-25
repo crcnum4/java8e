@@ -3,6 +3,7 @@ package Yahtzee;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Hand {
     private List<Die> dice;
@@ -25,11 +26,14 @@ public class Hand {
         dice.get(choice).roll(rand);
     }
 
-//    public int getDieValue(int pos) {
-//        return dice.get(pos).getValue();
-//    }
-
-    public void displayHand() {
-
+    public void roll(Random rand, List<Integer> choices) {
+        for (int choice : choices) {
+            roll(rand, choice);
+        }
     }
+
+    public List<Integer> getDice() {
+        return dice;
+    }
+    
 }
