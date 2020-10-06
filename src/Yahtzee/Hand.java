@@ -33,7 +33,10 @@ public class Hand {
     }
 
     public List<Integer> getDice() {
-        return dice;
+        List<Integer> values = new ArrayList<>();
+        for (var die : dice) {
+            values.add(die.getValue());
+        }
+        return values;
     }
-    
 }

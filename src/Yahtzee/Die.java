@@ -10,6 +10,11 @@ public class Die {
         value = 1;
     }
 
+    public Die(int sides) {
+        value = 1;
+        this.sides = sides;
+    }
+
     public void roll(Random rand) {
         value = rand.nextInt(sides) + 1;
     }
