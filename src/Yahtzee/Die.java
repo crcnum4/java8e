@@ -3,7 +3,7 @@ package Yahtzee;
 import java.util.Random;
 
 public class Die {
-    private int value;
+    protected int value;
     private int sides = 6;
 
     public Die() {

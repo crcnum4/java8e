@@ -1,6 +1,6 @@
 package BankAccount;
 
-public class InvestmentAccount extends BankAccount {
+public class InvestmentAccount extends BankAccount implements Account {
     private int interestRate;
     private int period;
     private char periodType; // D=Day, M=Month, W=Week, Q=Quarter, Y=Year

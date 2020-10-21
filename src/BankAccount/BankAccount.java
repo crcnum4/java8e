@@ -1,6 +1,6 @@
 package BankAccount;
 
-public class BankAccount {
+public class BankAccount implements Account {
     private int accountNum;
     private String owner;
     protected int balance;
@@ -15,6 +15,11 @@ public class BankAccount {
 
     public void deposit(int amt) {
         balance += amt;
+    }
+
+    @Override
+    public String getOwner() {
+        return owner;
     }
 
     public void withdraw(int amt) {

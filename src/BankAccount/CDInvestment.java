@@ -1,6 +1,6 @@
 package BankAccount;
 
-public class CDInvestment extends InvestmentAccount {
+public class CDInvestment extends InvestmentAccount implements Account {
     private int timeFrame = 3;
     private char timePeriod = 'Y';
 
