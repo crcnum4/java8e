@@ -37,5 +37,7 @@ public class BankAccount implements Account {
     public int getBalance() {
         return balance;
     }
+
+    public int getAccountNum() {return accountNum;}
 }
 
