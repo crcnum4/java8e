@@ -16,12 +16,8 @@ public class Client {
     private String lastName;
     private String middleName;
     private String clientId;
-//    private String Address
     private HashMap<Integer, Account> accounts;
     private List<DebitCard> debitCards;
-//    private List<CheckingAccount> checkingAccounts;
-//    private List<SavingsAccount> savingsAccounts;
-//    private List<CDInvestment> cdInvestments;
 
     public Client(String firstName, String lastName, String clientId) {
         this.name = firstName + " " + lastName;
@@ -30,9 +26,6 @@ public class Client {
         this.clientId = clientId;
         accounts = new HashMap<>();
         debitCards = new ArrayList<>();
-//        this.checkingAccounts = new ArrayList<CheckingAccount>();
-//        this.savingsAccounts = new ArrayList<SavingsAccount>();
-//        this.cdInvestments = new ArrayList<CDInvestment>();
     }
 
     public void addAccount(Account account) {
