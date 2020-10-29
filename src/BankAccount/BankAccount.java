@@ -33,7 +33,7 @@ public class BankAccount implements Account {
     }
 
     public String getDetails() {
-        return type + " Account, Owner: " + owner + "\tAccount Number: " + accountNum + "\tBalance: " + balance;
+        return type + " Account, Owner: " + owner.getName() + "\tAccount Number: " + accountNum + "\tBalance: " + balance;
     }
 
     public int getBalance() {

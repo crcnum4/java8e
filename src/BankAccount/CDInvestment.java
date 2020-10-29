@@ -4,10 +4,10 @@ import Bank.Client;
 
 public class CDInvestment extends InvestmentAccount implements Account {
     private int timeFrame = 3;
-    private char timePeriod = 'Y';
+    private String timePeriod = "Y";
 
     public CDInvestment(int balance, int accountNum, Client owner, int interestRate, int period, int timeFrame) {
-        super(balance, accountNum, owner, interestRate, period, 'M');
+        super(balance, accountNum, owner, interestRate, period, "M");
         this.timeFrame = timeFrame;
     }
 

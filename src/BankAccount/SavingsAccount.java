@@ -1,9 +1,11 @@
 package BankAccount;
 
+import Bank.Client;
+
 public class SavingsAccount extends BankAccount implements Account {
     private int interest;
 
-    public SavingsAccount (int accountNum, int balance, String owner, int interest) {
+    public SavingsAccount (int accountNum, int balance, Client owner, int interest) {
         super(accountNum, balance, owner, "Savings");
         this.interest = interest;
     }
