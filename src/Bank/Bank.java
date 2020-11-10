@@ -31,6 +31,7 @@ public class Bank {
         Client client = clients.get(clientId);
         // TODO: create account giving it the client.
         Account newAccount = createAccount(accountType, client, ++accountCount, startingBal, ui);
+        System.out.println(newAccount.getDetails());
         // TODO: attach to accounts collection
         client.addAccount(newAccount);
         accounts.put(accountCount, newAccount);
@@ -54,9 +55,7 @@ public class Bank {
         }
     }
 
-    public Account getAccount(int accountId) {
-        return accounts.get(accountId);
-    }
+     
 
 //    public SavingsAccount createSavingsAccount() {};
 //    public CheckingAccount createCheckingAccount() {};
