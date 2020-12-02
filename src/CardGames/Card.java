@@ -30,6 +30,10 @@ public class Card {
             default:
                 output = value == 10 ? Integer.toString(value) : " " + value;
         }
-        return output;
+        return output + suit;
+    }
+
+    public int getValue() {
+        return value;
     }
 }

@@ -26,4 +26,9 @@ public class Standard implements Deck {
 
     public Card draw() {return cards.remove(cards.size() - 1);}
 
+    public Boolean isEmpty() {
+        if (cards.size() == 0) return true;
+        return false;
+    }
+
 }
