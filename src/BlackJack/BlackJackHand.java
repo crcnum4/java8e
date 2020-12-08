@@ -11,6 +11,7 @@ public class BlackJackHand {
     private int score;
     private boolean hasAce;
     private Actor actor;
+    public int bet;
 
     public BlackJackHand(Actor actor) {
         this.actor = actor;
