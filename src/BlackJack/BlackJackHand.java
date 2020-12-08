@@ -1,5 +1,6 @@
 package BlackJack;
 
+import BlackJack.Actors.Actor;
 import CardGames.Card;
 
 import java.util.ArrayList;
@@ -9,6 +10,21 @@ public class BlackJackHand {
     private List<Card> cards = new ArrayList<>();
     private int score;
     private boolean hasAce;
+    private Actor actor;
+
+    public BlackJackHand(Actor actor) {
+        this.actor = actor;
+    }
+
+    // TODO: ? add constructor that takes one card for a split;
+
+    public Actor getActor() {
+        return actor;
+    }
+
+    public String getName() {
+        return  actor.getName();
+    }
 
     public int getCount() {
         return cards.size();
@@ -30,12 +46,6 @@ public class BlackJackHand {
         }
         return output.trim();
     }
-
-    //KAAA
-    // K > sum = 10 hasAce = false
-    // A > sum = 21 hasAce = true
-    // A > sum = 12 hasAce = false
-    // A > value 1 13 hasAce = false
 
     public int getScore() {
         hasAce = false;
