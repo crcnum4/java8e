@@ -77,4 +77,6 @@ public class BlackJackHand {
 
     private boolean isFace (int value) {return value > 10;}
 
+    public static class BlackJack {
+    }
 }
