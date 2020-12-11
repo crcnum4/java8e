@@ -2,6 +2,6 @@ package CardGames;
 
 public interface Deck {
     void shuffle();
-    Card draw();
+    Card draw(boolean facing);
     Boolean isEmpty();
 }

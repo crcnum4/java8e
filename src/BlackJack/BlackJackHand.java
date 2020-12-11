@@ -11,7 +11,7 @@ public class BlackJackHand {
     private int score;
     private boolean hasAce;
     private Actor actor;
-    public int bet;
+    private int bet;
 
     public BlackJackHand(Actor actor) {
         this.actor = actor;
@@ -43,7 +43,7 @@ public class BlackJackHand {
     public String toString() {
         String output = "";
         for (var card : cards) {
-            output += card + " ";
+            output += card.isFaceDown() ? "<*> " : card + " ";
         }
         return output.trim();
     }
@@ -71,12 +71,35 @@ public class BlackJackHand {
         return card;
     }
 
+    public void setBet() {
+        bet = actor.setBet();
+    }
+
+    public int getBet() {
+        return bet;
+    }
+
+    public void doubleBet() {
+        bet *= 2;
+    }
+
+    public void revealHand() {
+        for (var card : cards) {
+            if (card.isFaceDown()) card.flip();
+        }
+    }
+
+    public boolean isPair() {
+        if (cards.size() > 2) return false;
+        return determineValue(cards.get(0).getValue()) == determineValue(cards.get(1).getValue());
+    }
+
     private boolean isAce (int value) {return value == 1;}
 
     private boolean isSafe () {return score + 11 <= 21;}
 
     private boolean isFace (int value) {return value > 10;}
 
-    public static class BlackJack {
-    }
+//    public static class BlackJack {
+//    }
 }

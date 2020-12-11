@@ -11,13 +11,15 @@ public class Rigged implements Deck {
     }
 
     @Override
-    public Card draw() {
+    public Card draw(boolean facing) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Card Value: 1 - 13");
         int value = scanner.nextInt();
         System.out.println("Card suit 1 - 4");
         String suit = scanner.next();
-        return new Card(value, SUITS[Integer.parseInt(suit)]);
+        Card card = new Card(value, SUITS[Integer.parseInt(suit) - 1]);
+        card.flip();
+        return card;
     }
 
     public Boolean isEmpty() {

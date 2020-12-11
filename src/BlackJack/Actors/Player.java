@@ -24,6 +24,7 @@ public class Player implements Actor {
     public int setBet() {
         int bet;
         do {
+            System.out.println("Wallet: " + wallet);
             bet = console.requestInt("What is your bet?");
             if (validateBet(bet)) {
                 System.out.println("Invalid bet.");
@@ -35,6 +36,8 @@ public class Player implements Actor {
     public void adjustWallet(int amt) {
         wallet += amt;
     }
+
+    public int getWallet() {return wallet;}
 
     public void adjustWallet(int amt, String method) {
         switch (method) {
@@ -52,13 +55,13 @@ public class Player implements Actor {
     private boolean validateBet(int bet) {return bet > wallet && bet > 0;}
 
     @Override
-    public int getAction(int score) {
+    public int getAction(int score, boolean isPair) {
         int choice;
         do {
-            choice = console.requestInt(
+            choice = console.requestInt(isPair ? "What would you like to do 1=Hit, 2=Stand, 3=double?" :
                     "What would you like to do 1=Hit, 2=Stand?"
             );
-        } while (choice < 1 || choice > 2);
+        } while (choice < 1 || choice > 3);
 
         return choice;
     }

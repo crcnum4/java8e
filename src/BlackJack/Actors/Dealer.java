@@ -17,7 +17,7 @@ public class Dealer implements Actor {
     }
 
     @Override
-    public int getAction(int score) {
+    public int getAction(int score, boolean isPair) {
         return score < DECISION ? HIT : STAND;
     }
 }

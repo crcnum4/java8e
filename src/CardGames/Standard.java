@@ -24,7 +24,11 @@ public class Standard implements Deck {
 
     public void shuffle() { Collections.shuffle(cards); }
 
-    public Card draw() {return cards.remove(cards.size() - 1);}
+    public Card draw(boolean facing) {
+        Card card = cards.remove(cards.size() - 1);
+        if (facing) card.flip();
+        return card;
+    }
 
     public Boolean isEmpty() {
         if (cards.size() == 0) return true;

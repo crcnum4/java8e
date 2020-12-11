@@ -1,19 +1,22 @@
 package BlackJack;
 
 import BlackJack.Actors.Dealer;
+import BlackJack.Actors.Player;
 import CardGames.Deck;
+import CardGames.Rigged;
 import CardGames.Standard;
-import Yahtzee.Hand;
 
 public class Table {
-    private BlackJackHand dealersHand = new BlackJackHand(new Dealer());
-    private Deck deck = new Standard();
+    private BlackJackHand dealer = new BlackJackHand(new Dealer());
+    private BlackJackHand player = new BlackJackHand(new Player());
+    private Deck deck = new Rigged();
 
     public Deck getDeck() {
         return deck;
     }
 
-    public BlackJackHand getDealersHand() {
-        return dealersHand;
+    public BlackJackHand getDealer() {
+        return dealer;
     }
+    public BlackJackHand getPlayer() { return player; }
 }
