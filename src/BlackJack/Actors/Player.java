@@ -55,10 +55,10 @@ public class Player implements Actor {
     private boolean validateBet(int bet) {return bet > wallet && bet > 0;}
 
     @Override
-    public int getAction(int score, boolean isPair) {
+    public int getAction(int score, boolean isPair, int cardCount) {
         int choice;
         do {
-            choice = console.requestInt(isPair ? "What would you like to do 1=Hit, 2=Stand, 3=double?" :
+            choice = console.requestInt(cardCount == 2 ? "What would you like to do 1=Hit, 2=Stand, 3=double?" :
                     "What would you like to do 1=Hit, 2=Stand?"
             );
         } while (choice < 1 || choice > 3);

@@ -27,7 +27,7 @@ public class BlackJackHand {
         return  actor.getName();
     }
 
-    public int getCount() {
+    public int size() {
         return cards.size();
     }
 

@@ -9,7 +9,7 @@ import CardGames.Standard;
 public class Table {
     private BlackJackHand dealer = new BlackJackHand(new Dealer());
     private BlackJackHand player = new BlackJackHand(new Player());
-    private Deck deck = new Rigged();
+    private Deck deck = new Standard();
 
     public Deck getDeck() {
         return deck;

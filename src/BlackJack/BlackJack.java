@@ -16,7 +16,6 @@ public class BlackJack {
         // display card;
         setBet(table.getPlayer());
         displayTable();
-        // TODO: bet
         // display Actor cards and score
         table.getPlayer().revealHand();
         do {} while (!actorTurn(table.getPlayer()));
@@ -57,15 +56,17 @@ public class BlackJack {
     }
 
     private int getAction(BlackJackHand hand) {
-        return hand.getActor().getAction(hand.getScore(), hand.isPair()); // 1 or 2
+        return hand.getActor().getAction(hand.getScore(), hand.isPair(), hand.size()); // 1 or 2
     }
+
+    final int HIT = 1, STAND = 2, DOUBLE = 3;
 
     private boolean performAction(BlackJackHand hand, int action) {
         switch (action) {
-            case 3:
+            case DOUBLE:
                 System.out.println("Double");
                 hand.doubleBet();
-            case 1:
+            case HIT:
                 Card card = table.getDeck().draw(true);
                 System.out.println(hand.getName() +" Hit and was dealt " + card);
                 hand.addCard(card);
@@ -73,8 +74,8 @@ public class BlackJack {
                     System.out.println("Busted " + hand.getScore());
                     return true;
                 }
-                return action == 3 ? true : false;
-            case 2:
+                return action == DOUBLE ? true : false;
+            case STAND:
                 System.out.println(hand.getName() + " Stood.");
                 return true;
             default:
@@ -83,7 +84,6 @@ public class BlackJack {
         }
     }
 
-    // TODO: don't copy in final
     private void deal() {
         for (int count = 0; count < 2; count++){
             table.getPlayer().addCard(table.getDeck().draw(count == 0 ? false : true));
