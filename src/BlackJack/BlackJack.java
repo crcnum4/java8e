@@ -2,6 +2,7 @@ package BlackJack;
 
 import BlackJack.Actors.Player;
 import CardGames.Card;
+import Yahtzee.Hand;
 
 // TODO: detect blackJack
 
@@ -56,15 +57,22 @@ public class BlackJack {
     }
 
     private int getAction(BlackJackHand hand) {
-        return hand.getActor().getAction(hand.getScore(), hand.isPair(), hand.size()); // 1 or 2
+        return hand.getAction();
     }
 
-    final int HIT = 1, STAND = 2, DOUBLE = 3;
+    final int HIT = 1, STAND = 2, DOUBLE = 3, SPLIT = 4;
 
     private boolean performAction(BlackJackHand hand, int action) {
         switch (action) {
             case DOUBLE:
                 System.out.println("Double");
+//                int bet = hand.getBet();
+//                if (bet * 2 <= ((Player) hand.getActor()).getWallet()) {
+//                    hand.doubleBet();
+//                } else {
+//                    System.out.println("ERROR: Not enough money, Hit instead");
+//                    action = HIT;
+//                }
                 hand.doubleBet();
             case HIT:
                 Card card = table.getDeck().draw(true);
@@ -78,8 +86,21 @@ public class BlackJack {
             case STAND:
                 System.out.println(hand.getName() + " Stood.");
                 return true;
+            case SPLIT:
+                // take the second card out of the hand.
+                Card splitCard = hand.removeCard(1);
+                // create a second hand.
+                BlackJackHand newHand = new BlackJackHand(hand.getActor());
+                newHand.addCard(splitCard);
+                // deal 1 card to both hands.
+                hand.addCard(table.getDeck().draw(true));
+                newHand.addCard(table.getDeck().draw(true));
+                // duplicate the bet on the second hand.
+                newHand.setBet(hand.getBet());
+                // add hand to table;
+                // allow the play to continue;
             default:
-                System.out.println("error! default case hit");
+                System.out.println("error! default case Stand");
                 return true;
         }
     }
