@@ -20,10 +20,14 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        Deck deck = new Rigged();
-        deck.shuffle();
-        Card card = deck.draw(true);
+        UI ui = new Chaos();
+        Bank cdFinancial = new Bank("CD Financial");
+        cdFinancial.addClient("Cliff", "Choiniere");
+        cdFinancial.addAccount("1", "checking", 10000, ui);
+        cdFinancial.addAccount("1", "savings", 15000, ui);
+        cdFinancial.displayClients();
 
-        System.out.println(card);
+        cdFinancial.addDebitCard(ui, "1", 1);
+        cdFinancial.displayClients();
     }
 }

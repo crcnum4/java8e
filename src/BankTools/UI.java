@@ -1,6 +1,7 @@
 package BankTools;
 
 public interface UI {
-    public int requestInt(String text);
-    public String requestString(String text);
+    int requestInt(String text);
+    String requestString(String text);
+    String randomString(String characters, int length);
 }

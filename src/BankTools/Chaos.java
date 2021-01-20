@@ -15,4 +15,17 @@ public class Chaos implements UI{
         String[] options = {"D", "W", "B", "M", "Q", "Y"};
         return options[rand.nextInt(options.length)];
     }
+
+    @Override
+    public String randomString(String characters, int length) {
+        String[] chars = characters.split("");
+        String output = "";
+        Random rand = new Random();
+
+        for (int count = 0; count < length; count++) {
+            output += chars[rand.nextInt(chars.length)];
+        }
+
+        return output;
+    }
 }

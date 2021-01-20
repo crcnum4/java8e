@@ -37,7 +37,7 @@ public class DebitCard {
     }
 
     public String toString() {
-        return "cardNum: " + cardNum;
+        return "cardNum: " + cardNum + "\tpin: " + pin + "\tcvv: " + cvv + "\tBalance: " + primary.getBalance();
     }
 
 }

@@ -42,6 +42,10 @@ public class Client {
         }
     }
 
+    public void addDebitCard(DebitCard card) {
+        debitCards.add(card);
+    }
+
     @Override
     public String toString() {
         String output = "";

@@ -3,6 +3,7 @@ package Bank;
 import BankAccount.Account;
 import BankAccount.CheckingAccount;
 import BankAccount.SavingsAccount;
+import BankTools.DebitCard;
 import BankTools.UI;
 
 import java.util.HashMap;
@@ -14,6 +15,8 @@ public class Bank {
     private HashMap<Integer, Account> accounts;
     private Integer clientCount = 0;
     private Integer accountCount = 0;
+
+    private final String NUMBERS = "0123456789";
 
     public Bank(String name) {
         this.name = name;
@@ -27,12 +30,9 @@ public class Bank {
     }
 
     public void addAccount(String clientId, String accountType, int startingBal, UI ui) {
-        // TODO: get client from client collection
         Client client = clients.get(clientId);
-        // TODO: create account giving it the client.
         Account newAccount = createAccount(accountType, client, ++accountCount, startingBal, ui);
         System.out.println(newAccount.getDetails());
-        // TODO: attach to accounts collection
         client.addAccount(newAccount);
         accounts.put(accountCount, newAccount);
     }
@@ -47,6 +47,23 @@ public class Bank {
             default:
                 return null;
         }
+    }
+
+    public void addDebitCard(UI ui, String clientId, int accountNum) {
+        Client client = clients.get(clientId);
+        client.addDebitCard(createDebitCard(ui, client, accountNum));
+    }
+
+    public DebitCard createDebitCard(UI ui, Client client, int accountNum) {
+        Account account = accounts.get(accountNum);
+        DebitCard newCard = new DebitCard(
+                ui.randomString(NUMBERS, 16),
+                ui.randomString(NUMBERS, 4),
+                ui.randomString(NUMBERS, 3),
+                client.getName(),
+                (CheckingAccount) account
+        );
+        return newCard;
     }
 
     public void displayClients() {

@@ -1,21 +1,18 @@
 package BlackJack;
 
-import BankTools.UI;
-
 import java.util.Scanner;
 
-public class Console implements UI {
-    Scanner scanner = new Scanner(System.in);
+public class Console {
+    static Scanner scanner = new Scanner(System.in);
 
-    @Override
-    public int requestInt(String text) {
+    public static int requestInt(String text) {
         //TODO change to nextLine and add number validation;
         System.out.println(text);
-        return scanner.nextInt();
+        String input = scanner.nextLine();
+        return Integer.parseInt(input);
     }
 
-    @Override
-    public String requestString(String text) {
+    public static String requestString(String text) {
         System.out.println(text);
         return scanner.nextLine();
     }
